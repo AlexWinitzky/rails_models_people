@@ -1,24 +1,28 @@
-# README
+rails new people -d postgresql
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+cd people
+(clean up gem file, create git repo, copy git remote)
 
-Things you may want to cover:
+git add .
 
-* Ruby version
+git commit -m ‘initial commit’
 
-* System dependencies
+git push origin master
 
-* Configuration
+rails g model person first_name last_name age:integer hair_color eye_color gender alive:boolean
 
-* Database creation
+bundle exec db:create db:migrate
 
-* Database initialization
+rails g controller people index show
+(We will make a partial form later so new and edit are not necessary at this point)
 
-* How to run the test suite
+(add resources :people to config.routes, fill out controller methods)
 
-* Services (job queues, cache servers, search engines, etc.)
+(Fill out model instance method, e.g.
 
-* Deployment instructions
+def full_name
+   "#{self.first_name} #{self.last_name}"
+  end
+end
 
-* ...
+)
