@@ -1,3 +1,5 @@
+Instructions:
+
 rails new people -d postgresql
 
 cd people
@@ -20,9 +22,13 @@ rails g controller people index show
 
 (Fill out model instance method, e.g.
 
-def full_name
-   "#{self.first_name} #{self.last_name}"
+class Person < ApplicationRecord
+  
+  def full_name
+    "#{self.first_name} #{self.last_name}"
   end
+
 end
+
 
 )
